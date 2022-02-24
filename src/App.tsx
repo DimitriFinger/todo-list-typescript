@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import Input from './components/Input';
-import { Todo } from './model';
 import TodoList from './components/TodoList';
+import { Todo } from './model';
 
-const App: React.FC = () => {
+const App = () => {
 
   const [todo, setTodo] = useState<string>('');
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -18,15 +18,13 @@ const App: React.FC = () => {
     }
   }
 
-  console.log(todos)
 
   return (
     <div className="App">
       <span className="heading">Taskify</span>
       <Input todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
 
-      <TodoList todos={todos} setTodos={setTodos}>
-      </TodoList>
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 };

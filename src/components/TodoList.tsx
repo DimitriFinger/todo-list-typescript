@@ -8,14 +8,19 @@ interface Props {
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
-const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
+const TodoList = ({ todos, setTodos }: Props) => {
     return (
         <div className='todos'>
             {todos.map(todo => (
-                <TodoCard todo={todo.todo} />
+                < TodoCard
+                    todo={todo}
+                    key={todo.id}
+                    todos={todos}
+                    setTodos={setTodos}
+                />
             ))}
         </div>
     )
 }
 
-export default TodoList;
+export default TodoList
